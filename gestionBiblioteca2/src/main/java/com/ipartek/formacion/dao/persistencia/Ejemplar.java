@@ -9,7 +9,7 @@ public class Ejemplar {
 	/**
 	 * 
 	 */
-	private Ejemplar() {
+	public Ejemplar() {
 		super();
 	}
 

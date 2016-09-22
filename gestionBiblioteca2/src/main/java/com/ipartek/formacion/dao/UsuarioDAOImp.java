@@ -88,7 +88,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
 				.addValue("idEjemplar", usuario.getEjemplar().getIdEjemplar());
 
 		Map<String, Object> out = jdbcCall.execute(in);
-		usuario.setIdUsuario((Integer) out.get("codalumno"));
+		usuario.setIdUsuario((Integer) out.get("idUsuario"));
 		return usuario;
 	}
 

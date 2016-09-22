@@ -8,7 +8,7 @@ import com.ipartek.formacion.dao.persistencia.Usuario;
 public interface UsuarioService {
 	public List<Usuario> getAll();
 
-	public void setAlumDAO(UsuarioDAOImp usuarioDAO);
+	public void setUsuarioDAO(UsuarioDAOImp usuarioDAO);
 
 	public Usuario getById(int id);
 

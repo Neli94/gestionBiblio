@@ -20,7 +20,7 @@ public class UsuarioServiceImp implements UsuarioService {
 	}
 
 	@Override
-	public void setAlumDAO(UsuarioDAOImp usuarioDAO) {
+	public void setUsuarioDAO(UsuarioDAOImp usuarioDAO) {
 		this.usuarioDAO = usuarioDAO;
 
 	}
