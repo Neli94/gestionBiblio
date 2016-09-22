@@ -3,7 +3,7 @@ package com.ipartek.formacion.dao.persistencia;
 import java.util.Date;
 
 public class Usuario {
-	private int id;
+	private int idUsuario;
 	private String nombre;
 	private String apellidos;
 	private Date fechaNaci;
@@ -14,16 +14,16 @@ public class Usuario {
 	/**
 	 * 
 	 */
-	private Usuario() {
+	public Usuario() {
 		super();
 	}
 
-	public int getId() {
-		return id;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdUsuario(int id) {
+		this.idUsuario = id;
 	}
 
 	public String getNombre() {

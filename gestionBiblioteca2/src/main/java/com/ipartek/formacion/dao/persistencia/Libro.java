@@ -1,10 +1,13 @@
 package com.ipartek.formacion.dao.persistencia;
 
+import java.util.List;
+
 public class Libro {
 	private int idLibro;
 	private String titulo;
 	private String autor;
 	private String isbn;
+	private List<Ejemplar> ejemplares;
 
 	/**
 	 * 
@@ -44,4 +47,13 @@ public class Libro {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+
+	public List<Ejemplar> getEjemplares() {
+		return ejemplares;
+	}
+
+	public void setEjemplares(List<Ejemplar> ejemplares) {
+		this.ejemplares = ejemplares;
+	}
+
 }

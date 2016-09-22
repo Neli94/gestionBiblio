@@ -4,7 +4,7 @@ public class Ejemplar {
 	private int idEjemplar;
 	private String editorial;
 	private int numPags;
-	private Libro libro;
+	private int alquilado;
 
 	/**
 	 * 
@@ -37,11 +37,12 @@ public class Ejemplar {
 		this.numPags = numPags;
 	}
 
-	public Libro getLibro() {
-		return libro;
+	public int getAlquilado() {
+		return alquilado;
 	}
 
-	public void setLibro(Libro libro) {
-		this.libro = libro;
+	public void setAlquilado(int alquilado) {
+		this.alquilado = alquilado;
 	}
+
 }
