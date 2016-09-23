@@ -4,7 +4,7 @@ public class Ejemplar {
 	private int idEjemplar;
 	private String editorial;
 	private int numPags;
-	private int alquilado;
+	private Usuario usuario;
 
 	/**
 	 * 
@@ -37,12 +37,12 @@ public class Ejemplar {
 		this.numPags = numPags;
 	}
 
-	public int getAlquilado() {
-		return alquilado;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setAlquilado(int alquilado) {
-		this.alquilado = alquilado;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

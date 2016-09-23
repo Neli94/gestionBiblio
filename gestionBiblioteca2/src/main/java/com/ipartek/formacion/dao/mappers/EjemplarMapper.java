@@ -6,9 +6,8 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
-import com.ipartek.formacion.dao.persistencia.Usuario;
 
-public class EjemplarMapper implements RowMapper<Ejemplar>{
+public class EjemplarMapper implements RowMapper<Ejemplar> {
 
 	@Override
 	public Ejemplar mapRow(ResultSet rs, int arg1) throws SQLException {
@@ -17,7 +16,7 @@ public class EjemplarMapper implements RowMapper<Ejemplar>{
 		ejemplar.setIdEjemplar(rs.getInt("idEjemplar"));
 		ejemplar.setEditorial(rs.getString("editorial"));
 		ejemplar.setNumPags(rs.getInt("numPags"));
-		ejemplar.setAlquilado(rs.getInt("alquilado"));
+		ejemplar.getUsuario().setIdUsuario(rs.getInt("idUsuario"));
 		return ejemplar;
 	}
 

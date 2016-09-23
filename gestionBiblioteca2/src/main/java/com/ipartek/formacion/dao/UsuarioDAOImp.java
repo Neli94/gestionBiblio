@@ -37,7 +37,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
 	@Override
 	public List<Usuario> getAll() {
 		List<Usuario> usuarios = null;
-		final String sql = "SELECT idUsuario, nombre, apellidos, fechaNaci, email, contrasena, idEjemplar FROM usuario";
+		final String sql = "SELECT idUsuario, nombre, apellidos, fechaNaci, email, contrasena FROM usuario";
 		try {
 			usuarios = jdbctemplate.query(sql, new UsuarioMapper());
 		} catch (EmptyResultDataAccessException e) {
@@ -52,7 +52,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
 	@Override
 	public Usuario getById(int id) {
 		Usuario usuario = null;
-		final String SQL = "SELECT idUsuario, nombre, apellidos, fechaNaci, email, contrasena, idEjemplar FROM usuario WHERE idUsuario=?";
+		final String SQL = "SELECT idUsuario, nombre, apellidos, fechaNaci, email, contrasena FROM usuario WHERE idUsuario=?";
 		try {
 			usuario = jdbctemplate.queryForObject(SQL, new Object[] { id }, new UsuarioMapper());
 		} catch (EmptyResultDataAccessException e) {
@@ -63,12 +63,9 @@ public class UsuarioDAOImp implements UsuarioDAO {
 
 	@Override
 	public Usuario update(Usuario usuario) {
-		final String SQL = "UPDATE usuario SET nombre=?, apellidos=?, fechaNaci=?, email=?, contrasena=?, idEjemplar=?  WHERE idUsuario=?";
-		jdbctemplate
-				.update(SQL,
-						new Object[] { usuario.getNombre(), usuario.getApellidos(), usuario.getFechaNaci(),
-								usuario.getEmail(), usuario.getContrasena(), usuario.getEjemplar().getIdEjemplar(),
-								usuario.getIdUsuario() });
+		final String SQL = "UPDATE usuario SET nombre=?, apellidos=?, fechaNaci=?, email=?, contrasena=?  WHERE idUsuario=?";
+		jdbctemplate.update(SQL, new Object[] { usuario.getNombre(), usuario.getApellidos(), usuario.getFechaNaci(),
+				usuario.getEmail(), usuario.getContrasena(), usuario.getIdUsuario() });
 		return usuario;
 	}
 
@@ -84,8 +81,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
 		jdbcCall.withProcedureName("insertUsuario");
 		SqlParameterSource in = new MapSqlParameterSource().addValue("nombre", usuario.getNombre())
 				.addValue("apellidos", usuario.getApellidos()).addValue("fechaNaci", usuario.getFechaNaci())
-				.addValue("email", usuario.getEmail()).addValue("contrasena", usuario.getContrasena())
-				.addValue("idEjemplar", usuario.getEjemplar().getIdEjemplar());
+				.addValue("email", usuario.getEmail()).addValue("contrasena", usuario.getContrasena());
 
 		Map<String, Object> out = jdbcCall.execute(in);
 		usuario.setIdUsuario((Integer) out.get("idUsuario"));

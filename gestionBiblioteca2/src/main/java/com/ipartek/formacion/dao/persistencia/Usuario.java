@@ -9,7 +9,6 @@ public class Usuario {
 	private Date fechaNaci;
 	private String email;
 	private String contrasena;
-	private Ejemplar ejemplar;
 
 	/**
 	 * 
@@ -66,11 +65,4 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 
-	public Ejemplar getEjemplar() {
-		return ejemplar;
-	}
-
-	public void setEjemplar(Ejemplar ejemplar) {
-		this.ejemplar = ejemplar;
-	}
 }

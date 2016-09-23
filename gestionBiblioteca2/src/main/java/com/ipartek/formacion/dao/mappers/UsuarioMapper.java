@@ -19,7 +19,6 @@ public class UsuarioMapper implements RowMapper<Usuario> {
 		usuario.setFechaNaci(rs.getDate("fechaNaci"));
 		usuario.setEmail(rs.getString("email"));
 		usuario.setContrasena(rs.getString("contrasena"));
-		usuario.getEjemplar().setIdEjemplar(rs.getInt("ejemplar"));
 		return usuario;
 	}
 
