@@ -20,19 +20,14 @@
 	<bean id="ejemplarDAOImp" class="com.ipartek.formacion.dao.EjemplarDAOImp">
 		<property name="dataSource" ref="mysqlDataSource"/>
 	</bean>
-	<bean id="libroDAOImp" class="com.ipartek.formacion.dao.LibroDAOImp">
-		<property name="dataSource" ref="mysqlDataSource"/>
-	</bean>
 
 	<bean id="usuarioServiceImp" class="com.ipartek.formacion.service.UsuarioServiceImp">
 		<property name="usuarioDAO" ref="usuarioDAOImp"/>
 	</bean>
  
-	<bean id="ejemplarServiceImp" class="com.ipartek.formacion.service.EjemplarServiceImp">
+	<!--  <bean id="ejemplarServiceImp" class="com.ipartek.formacion.service.EjemplarServiceImp">
 		<property name="ejemplarDAO" ref="ejemplarDAOImp"/>
 	</bean>
-	<bean id="libroServiceImp" class="com.ipartek.formacion.service.LibroServiceImp">
-		<property name="libroDAO" ref="libroDAOImp"/>
-	</bean>
+-->
 
 </beans>

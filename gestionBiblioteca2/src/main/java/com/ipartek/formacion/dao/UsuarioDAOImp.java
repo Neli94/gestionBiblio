@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,6 +22,7 @@ import com.ipartek.formacion.dao.persistencia.Usuario;
 
 @Repository("usuarioDAOImp")
 public class UsuarioDAOImp implements UsuarioDAO {
+	private static final Logger logger = LoggerFactory.getLogger(UsuarioDAOImp.class);
 	@Autowired
 	private DataSource dataSource;
 	private JdbcTemplate jdbctemplate;

@@ -2,6 +2,8 @@ package com.ipartek.formacion.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ipartek.formacion.dao.UsuarioDAOImp;
@@ -9,6 +11,7 @@ import com.ipartek.formacion.dao.interfaces.UsuarioDAO;
 import com.ipartek.formacion.dao.persistencia.Usuario;
 
 public class UsuarioServiceImp implements UsuarioService {
+	private static final Logger logger = LoggerFactory.getLogger(UsuarioServiceImp.class);
 	@Autowired
 	UsuarioDAO usuarioDAO;
 

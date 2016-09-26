@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
+import com.ipartek.formacion.dao.persistencia.Libro;
+import com.ipartek.formacion.dao.persistencia.Usuario;
 import com.ipartek.formacion.service.EjemplarServiceImp;
 
 @Controller
@@ -38,7 +40,7 @@ public class EjemplaresController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getAll() {
 		mav = new ModelAndView("/ejemplares/listado");
-		List<Ejemplar> ejemplares = es.getAll();
+		List<Libro> ejemplares = es.getAll();
 		mav.addObject("listado_ejemplares", ejemplares);
 		return mav;
 	}
@@ -46,7 +48,7 @@ public class EjemplaresController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView getById(@PathVariable("id") int id) {
 		mav = new ModelAndView("ejemplares/ejemplar");
-		Ejemplar ejemplar = es.getById(id);
+		Ejemplar ejemplar = es.getEjemplar(id);
 		mav.addObject("ejemplar", ejemplar);
 		return mav;
 	}
@@ -62,14 +64,15 @@ public class EjemplaresController {
 																		// caso
 	// con el nombre del value es suficiente
 	public String addEjemplar(Model model) {
-		model.addAttribute("ejemplar", new Ejemplar());
+		Usuario usuario = new Usuario();
+		model.addAttribute("ejemplar", new Ejemplar(usuario));
 		return "ejemplares/ejemplar";
 	}
 
 	@RequestMapping(value = "/{id}", method = { RequestMethod.POST, RequestMethod.DELETE })
 	public ModelAndView delete(@PathVariable("id") int id) {
 		mav = new ModelAndView("ejemplares/listado");
-		es.delete(id);
+		es.eliminar(id);
 		return mav;
 	}
 
@@ -89,7 +92,7 @@ public class EjemplaresController {
 			if (ejemplar.getIdEjemplar() > 0) {
 				es.update(ejemplar);
 			} else {
-				es.create(ejemplar);
+				// es.create(ejemplar);
 			}
 		}
 

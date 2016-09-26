@@ -2,51 +2,49 @@ package com.ipartek.formacion.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ipartek.formacion.dao.EjemplarDAOImp;
 import com.ipartek.formacion.dao.interfaces.EjemplarDAO;
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
-import com.ipartek.formacion.dao.persistencia.Usuario;
+import com.ipartek.formacion.dao.persistencia.Libro;
 
-public class EjemplarServiceImp implements EjemplarService{
+public class EjemplarServiceImp implements EjemplarService {
+	private static final Logger logger = LoggerFactory.getLogger(EjemplarServiceImp.class);
+
 	@Autowired
 	EjemplarDAO ejemplarDAO;
 
 	@Override
-	public List<Ejemplar> getAll() {
-		List<Ejemplar> ejemplares = null;
-		ejemplares = ejemplarDAO.getAll();
-		return ejemplares;
+	public List<Libro> getAll() {
+		return ejemplarDAO.getAll();
 	}
 
 	@Override
-	public void setEjemplarDAO(EjemplarDAOImp ejemplarDAO) {
-		this.ejemplarDAO=ejemplarDAO;
-		
+	public List<Libro> find(Libro libro) {
+		return ejemplarDAO.find(libro);
 	}
 
 	@Override
-	public Ejemplar getById(int id) {
-		Ejemplar ejemplar=ejemplarDAO.getById(id);
-		return ejemplar;
+	public List<Ejemplar> getEjemplares(Libro libro) {
+		return ejemplarDAO.getEjemplares(libro);
+	}
+
+	@Override
+	public Ejemplar getEjemplar(int idEjemplar) {
+		return ejemplarDAO.getEjemplar(idEjemplar);
+	}
+
+	@Override
+	public void eliminar(int idEjemplar) {
+		ejemplarDAO.eliminar(idEjemplar);
+
 	}
 
 	@Override
 	public Ejemplar update(Ejemplar ejemplar) {
-		Ejemplar ejem=ejemplarDAO.update(ejemplar);
-		return ejem;
-	}
-
-	@Override
-	public void delete(int id) {
-		ejemplarDAO.delete(id);
-		
-	}
-
-	@Override
-	public Ejemplar create(Ejemplar ejemplar) {
-		return ejemplarDAO.create(ejemplar);
+		return ejemplarDAO.update(ejemplar);
 	}
 
 }

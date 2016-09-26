@@ -1,6 +1,6 @@
 package com.ipartek.formacion.dao.persistencia;
 
-public class Ejemplar {
+public class Ejemplar extends Libro {
 	private int idEjemplar;
 	private String editorial;
 	private int numPags;
@@ -9,8 +9,11 @@ public class Ejemplar {
 	/**
 	 * 
 	 */
-	public Ejemplar() {
+	public Ejemplar(Usuario usuario) {
 		super();
+		setEditorial("");
+		setNumPags(0);
+		setUsuario(usuario);
 	}
 
 	public int getIdEjemplar() {

@@ -1,8 +1,9 @@
 package com.ipartek.formacion.dao.persistencia;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Usuario {
+public class Usuario implements Serializable {
 	private int idUsuario;
 	private String nombre;
 	private String apellidos;
@@ -15,6 +16,11 @@ public class Usuario {
 	 */
 	public Usuario() {
 		super();
+		setNombre("");
+		setApellidos("");
+		setFechaNaci(new Date());
+		setEmail("");
+		setContrasena("");
 	}
 
 	public int getIdUsuario() {

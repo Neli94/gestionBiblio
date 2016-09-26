@@ -1,5 +1,6 @@
 package com.ipartek.formacion.dao.persistencia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Libro {
@@ -14,6 +15,10 @@ public class Libro {
 	 */
 	public Libro() {
 		super();
+		setIdLibro(-1);
+		setTitulo("");
+		setIsbn("");
+		setEjemplares(new ArrayList<Ejemplar>());
 	}
 
 	public int getIdLibro() {
@@ -54,6 +59,10 @@ public class Libro {
 
 	public void setEjemplares(List<Ejemplar> ejemplares) {
 		this.ejemplares = ejemplares;
+	}
+
+	public void addEjemplar(Ejemplar ejemplar) {
+		this.ejemplares.add(ejemplar);
 	}
 
 }

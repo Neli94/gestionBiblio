@@ -2,20 +2,15 @@ package com.ipartek.formacion.service;
 
 import java.util.List;
 
-import com.ipartek.formacion.dao.EjemplarDAOImp;
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
+import com.ipartek.formacion.dao.persistencia.Libro;
 
+public interface EjemplarService extends LibroService {
+	public List<Ejemplar> getEjemplares(Libro libro);
 
-public interface EjemplarService {
-	public List<Ejemplar> getAll();
+	public Ejemplar getEjemplar(int codEjemplar);
 
-	public void setEjemplarDAO(EjemplarDAOImp ejemplarDAO);
-
-	public Ejemplar getById(int id);
+	public void eliminar(int codEjemplar);
 
 	public Ejemplar update(Ejemplar ejemplar);
-
-	public void delete(int id);
-
-	public Ejemplar create(Ejemplar ejemplar);
 }
